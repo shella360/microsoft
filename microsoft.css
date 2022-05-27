@@ -1,0 +1,930 @@
+* {
+    box-sizing: border-box;
+}
+body,
+ul,
+h1,
+p,
+li,
+button {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', 'SegoeUI', 'Microsoft JhengHei', 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* 偽元素寫法1 */
+a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+.nav-left a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    width: 98%;
+    height: 1px;
+    background-color: black;
+    opacity: 0;
+    transition: .2s;
+}
+
+a:hover::after {
+    opacity: 1;
+}
+
+/* 偽元素寫法二 */
+.underline {
+    position: relative;
+}
+
+.underline:hover::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    width: 98%;
+    height: 1px;
+    background-color: black;
+}
+
+.container {
+    max-width: calc(1600px + 10%);
+    width: 100%;
+    padding: 0px 5%;
+    margin: 0 auto;
+}
+
+/* nav */
+.nav {
+    width: 100%;
+    height: 60px;
+    /* background-color: rgb(241, 241, 188); */
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    position: relative;
+}
+
+ul {
+    list-style: none;
+}
+
+.logo {
+    margin-right: 30px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+
+.nav-left li:not(.more-btn) {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.more {
+    display: none;
+}
+
+.nav-left ul {
+    display: flex;
+}
+
+.nav-right li:not(.bar) {
+    padding: 15px;
+}
+
+.sign-in {
+    display: flex;
+    align-items: center;
+}
+
+.sign-in img {
+    margin: 8px;
+}
+
+.nav-right .search i {
+    transform: rotateY(180deg);
+}
+
+.dropdown-surface {
+    display: none;
+}
+
+.all-microsoft-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    width: 1200px;
+    background-color: #f2f2f2;
+    z-index: 2;
+}
+
+.all-microsoft-dropdown ul li {
+    padding: 15px;
+    margin: 0px;
+}
+
+.all-microsoft-dropdown>li {
+    width: calc(100% / 6);
+}
+
+.all-microsoft-dropdown ul .a {
+    font-weight: 800;
+}
+
+.all-microsoft-dropdown:not(.a) {
+    font-weight: 100;
+}
+
+.all-microsoft-dropdown i:not(.map) {
+    display: none;
+}
+
+.all-microsoft-dropdown>li>ul>li:hover {
+    text-decoration: underline;
+}
+.map {
+    margin-left: 10px;
+    color: #616161;
+}
+/* 檢視網站地圖 */
+.all-microsoft-dropdown div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: #e6e6e6;
+    border-bottom: 2px solid black;
+}
+#menu-btn,
+#title1,
+#title2,
+#title3,
+#title4,
+#title5,
+#title6,
+.bar {
+    display: none;
+}
+
+#menu-btn:checked+.all-microsoft-dropdown {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav .all-microsoft-dropdown .b {
+    display: none;
+}
+
+/* 輪播區 */
+button {
+    border: none;
+}
+
+#carousel>.container {
+    position: relative;
+}
+
+.carousel-content {
+    width: 520px;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-65%);
+}
+.carousel-content2 {
+    width: 520px;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    /* transform: translateY(-60%); */
+}
+.carousel-content2 .box{
+background-color: #ffb900;
+}
+#carousel .carousel-content2 #black{
+    width: 135px;
+}
+
+#carousel .container button {
+    text-align: center;
+    font-size: 15px;
+    width: 200px;
+    height: 40px;
+    margin-right: 10px;
+    padding: 10px 20px 10px 20px;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+#black {
+    background-color: black;
+    color: azure;
+}
+
+#black>span {
+    position: relative;
+}
+
+#white {
+    background-color: transparent;
+}
+
+#black>span::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0px;
+    width: 95%;
+    height: 2px;
+    background-color: white;
+    opacity: 0;
+    transition: .5s;
+}
+
+#white>span::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0px;
+    width: 95%;
+    height: 2px;
+    background-color: black;
+    opacity: 0;
+    transition: .5s;
+}
+
+#black:hover span::after,
+#white:hover span::after {
+    opacity: 1;
+}
+
+.carousel-content p,
+.carousel-content2 p {
+    margin: 10px 0;
+    text-align: justify;
+}
+
+.carousel-content span,
+.carousel-content2 span {
+    position: relative;
+    transition: .5s;
+}
+
+.carousel-content button:hover span,
+.carousel-content2 button:hover span {
+    margin-right: 10px;
+}
+
+/* swiper */
+.swiper .swiper-button-next::after,.swiper .swiper-button-prev::after {
+    border-radius: 50%;
+    font-size: 20px;
+    color: #616161;
+    padding: 10px 15px;
+    background-color: #fff;
+    box-shadow: 0px 5px 15px #616161;
+}
+.swiper-button-next,.swiper-button-prev{
+    opacity: 0;
+}
+.swiper:hover .swiper-button-next,.swiper:hover .swiper-button-prev{
+    opacity: 0.5;
+}
+.swiper .swiper-button-next:hover,.swiper .swiper-button-prev:hover{
+    opacity: 1;
+}
+.swiper-pagination-bullet{
+    border: 1px solid black;
+    background-color: #fff;
+    position: relative;
+    opacity: 1;
+}
+.swiper-pagination-bullet:hover{
+background-color: #616161;
+}
+.swiper-pagination-bullet-active{
+    background-color: black;
+}
+.swiper-pagination-bullet::after{
+ content: "";
+ position: absolute;
+ top:-60%;
+ left: -60%;
+ width: 200%;
+ height: 200%;
+ border: 1px solid black;
+ opacity: 0;
+}
+.swiper-pagination-bullet:focus.swiper-pagination-bullet::after{
+opacity: 1;
+}
+.pause{
+    position: absolute;
+    background-image: url(./img/picture/pause-0.png);
+    background-size: cover;
+    left: 53%;
+    top: -10%;
+    width: 25px;
+    height: 25px;
+}
+.pause:hover{
+    border: 1px solid white;
+    background-color: white;
+    filter: invert(100%);
+}
+.pause-text{
+    display: none;
+    position: absolute;
+    top: -10%;
+    left: 57%;
+    background-color: #fff;
+    border:1px solid rgba(0,0,0,.3);
+    width: 100px;
+    height: 25px;
+}
+.pause:hover+.pause-text{
+    display: block;
+}
+.play{
+    display: none;
+    position: absolute;
+    background-image: url(./img/picture/play-1.png);
+    background-size: contain;
+    left: 53%;
+    top: -10%;
+    width: 25px;
+    height: 25px;
+}
+.play:hover{
+ background-color: white;
+ border: 1px solid white;
+ filter: invert(100%);
+}
+.play-text{
+    display: none;
+    position: absolute;
+    top: -10%;
+    left: 57%;
+    background-color: #fff;
+    border:1px solid rgba(0,0,0,.3);
+    width: 100px;
+    height: 25px;
+}
+.play:hover+.play-text{
+    display: block;
+}
+
+/* product區 */
+#f-active .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#f-active ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 0px;
+}
+
+#f-active ul li {
+    margin: 20px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+#f-active a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#f-active li:hover div {
+    text-decoration: underline;
+}
+
+/* 卡片區 */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.card {
+    width: 25%;
+    padding: 0px 10px;
+}
+
+#cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+#cards img {
+    width: 100%;
+}
+
+.box {
+    text-align: center;
+    background-color: #ffd800;
+    display: inline-block;
+    padding: 3px 14px 5px;
+}
+
+#cards button {
+    width: 100px;
+    height: 30px;
+    margin: 15px 0;
+    padding: 3px;
+    font-size: 15px;
+    background-color: #fff;
+    color: rgb(0, 103, 184)
+}
+
+#cards button:hover span {
+    margin-right: 10px;
+}
+
+.card-content span {
+    transition: .5s;
+    position: relative;
+}
+.card-content>button>span::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -5px;
+    width: 95%;
+    height: 2px;
+    background-color: rgb(0, 103, 184);
+    opacity: 0;
+}
+
+/* hover到某物裡面的東西偽元素要出現 */
+.card-content>button:hover span::after {
+    opacity: 1;
+}
+
+/* hover到自身自身的偽元素要出現 */
+/* .card-content>button>span:hover::after */
+
+/* 深入了解區 */
+#deep .container {
+    position: relative;
+}
+
+.deep-content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    /* margin-left: 20px; */
+}
+
+.deep-content p {
+    margin: 10px 0;
+    text-align: justify;
+}
+
+.deep-content button {
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.deep-content span {
+    position: relative;
+    transition: .5s;
+}
+
+.deep-content button:hover span {
+    margin-right: 10px;
+}
+
+
+/* 卡片區part2 */
+/* 社群 */
+#social .container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+#social span,
+i {
+    margin-right: 10px;
+}
+
+#social i {
+    font-size: 28px;
+}
+
+#social>.container :nth-child(2) {
+    color: #425daa;
+}
+
+#social>.container :nth-child(3) {
+    color: #ed2b2f
+}
+
+/* footer */
+footer {
+    margin-top: 48px;
+    background-color: #f2f2f2;
+    color: #616161;
+}
+
+footer a {
+    color: #616161;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer .heading {
+    padding: 36px 0px 4px;
+    font-weight: bolder;
+}
+
+.group {
+    width: calc(100% / 6);
+    padding: 0px 12px;
+}
+
+.group li {
+    padding: 8px 0px 8px;
+}
+
+.group li:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.area {
+    padding: 30px 20px 16px;
+    display: flex;
+}
+
+.area-right {
+    margin-left: auto;
+}
+
+.area-right ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.area-right li {
+    margin-right: 24px;
+}
+
+.area span:hover {
+    text-decoration: underline;
+}
+
+.area-right li:not(:last-child):hover {
+    text-decoration: underline;
+}
+
+/* 所有microsoft-dropdown移位 */
+@media(max-width:1550px) {
+    .all-microsoft-dropdown {
+        left: 50px;
+    }
+}
+
+/* nav-right文字不見 */
+@media (max-width:1399px) {
+    .nav-right span:not(.microsoft) {
+        display: none;
+    }
+
+    .carousel-content {
+        width: 440px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media(max-width:1200px) {
+    .all-microsoft-dropdown {
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 五個一排 */
+    .all-microsoft-dropdown>li {
+        width: 20%;
+    }
+
+    /* 卡片區一排2個卡片 */
+    .card {
+        width: 50%;
+    }
+
+    .deep-content {
+        width: 300px;
+    }
+
+    /* info一排3個group */
+    .info {
+        flex-wrap: wrap;
+    }
+
+    .group {
+        width: calc(100% / 3);
+    }
+
+    header .container,
+    #carousel .container,
+    #deep .container {
+        padding: 0px;
+    }
+}
+
+/* 更多裡面包"支援"跟"Xbox" */
+@media(max-width:1100px) {
+    .more {
+        display: block;
+    }
+
+    .nav-left ul {
+        display: none;
+    }
+
+    .more-btn li {
+        padding: 17px 20px 17px 20px;
+    }
+
+    .more-btn {
+        position: relative;
+    }
+
+    .nav-left .more-btn:hover ul {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 180%;
+        left: 0;
+        background-color: #f2f2f2;
+        border: 1px solid #e6e6e6;
+        border-bottom: 2px solid black;
+        width: 300%;
+    }
+
+    .dropdown-surface {
+        display: none;
+    }
+
+    .all-microsoft-dropdown {
+        margin: 0 auto;
+    }
+
+    .all-microsoft-dropdown>li {
+        width: 25%;
+    }
+
+    .carousel-content {
+        width: 300px;
+    }
+
+}
+
+/* 更多裡面包surface Xbox 支援 */
+@media (max-width:950px) {
+    .surface-btn {
+        display: none;
+    }
+
+    .dropdown-surface {
+        display: block;
+        z-index: 1;
+    }
+}
+
+/* logo在中間 */
+@media (max-width:880px) {
+    .nav-left {
+        display: none;
+    }
+
+    .nav {
+        position: relative;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .bar {
+        display: block;
+        font-size: 30px;
+        position: absolute;
+        left: 10px;
+        top: 15px;
+    }
+
+    .fa-bars {
+        font-size: 30px;
+    }
+
+    .search i {
+        position: absolute;
+        left: 60px;
+        top: 23px;
+    }
+
+    #menu-btn:checked+.all-microsoft-dropdown {
+        display: flex;
+    }
+
+    .all-microsoft {
+        display: none;
+    }
+
+    .nav .all-microsoft-dropdown .b {
+        display: block;
+    }
+
+    .nav .all-microsoft-dropdown .b>li,
+    .all-microsoft-dropdown div {
+        display: block;
+        font-weight: bolder;
+    }
+
+    .all-microsoft-dropdown {
+        width: 100%;
+    }
+
+    .all-microsoft-dropdown ul li:not(.a),
+    .all-microsoft-dropdown div i {
+        display: none;
+    }
+
+    /* 佔一整行 */
+    .all-microsoft-dropdown>ul,
+    .all-microsoft-dropdown>li {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .a,
+    .all-microsoft-dropdown>ul>li {
+        border-bottom: #e6e6e6 solid 1px;
+    }
+
+    .all-microsoft-dropdown div {
+        background-color: #f2f2f2;
+    }
+
+    /* 點下去會有邊框 */
+    .all-microsoft-dropdown .a:active {
+        border: 1px dashed black;
+    }
+
+    .all-microsoft-dropdown>ul li:active {
+        border: 1px dashed black;
+    }
+    .all-microsoft-dropdown div:active {
+        border: 1px dashed black;
+    }
+    #title1:checked~li,
+    #title2:checked~li,
+    #title3:checked~li,
+    #title4:checked~li,
+    #title5:checked~li,
+    #title6:checked~li {
+        display: block;
+    }
+
+    .nav .all-microsoft-dropdown>li>ul>li {
+        margin-left: 30px;
+        text-decoration: none;
+        border-bottom: #e6e6e6 solid 1px;
+    }
+
+    .all-microsoft-dropdown>li>ul>li:active {
+        border: 1px dashed black;
+    }
+
+    .all-microsoft-dropdown div {
+        justify-content: left;
+    }
+
+    .all-microsoft-dropdown li ul label li {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .all-microsoft-dropdown>li>ul .a .fa-angle-down {
+        display: block;
+    }
+
+    /* focus */
+    .a:focus .fa-angle-up {
+        display: block;
+    }
+
+    .all-microsoft-dropdown .a:focus .fa-angle-down {
+        display: none;
+    }
+
+    /* area變直排 */
+    .area {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .area-right {
+        margin: 0px;
+    }
+}
+
+/* carousel-content掉下來 */
+@media(max-width:760px) {
+    .carousel-content,.carousel-content2,
+    .deep-content {
+        position: unset;
+        transform: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 320px;
+        background-color: #e6e6e6;
+        margin: -4px 0px 0px;
+        padding: 12px;
+    }
+
+    #f-active .container {
+        justify-content: start;
+    }
+
+    #f-active ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #f-active a {
+        flex-direction: row;
+    }
+
+    #f-active a img {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+    /* carousel-content  文字置中對齊 */
+    .carousel-content p,
+    .deep-content p {
+        text-align: center;
+    }
+}
+
+/* 一排一個卡片跟group */
+@media(max-width:550px) {
+    .group {
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    /* carousel-content button 掉下來 */
+    .carousel-content div {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
